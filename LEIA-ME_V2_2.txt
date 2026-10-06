@@ -1,0 +1,39 @@
+GERENCIADOR DE AUTOMACOES V2.2
+
+
+O pacote inclui um config.json preenchido com as automações enviadas. Mantenha esse arquivo na mesma pasta do EXE; ele não deve ser embutido no executável. Ao substituir a versão, faça backup do config.json antigo e copie-o para junto do novo EXE, caso queira preservar suas configurações. Execute GERAR_EXE_V2_2.bat.
+
+
+Para testar, reinicie o Windows e acompanhe a aba de logs. O fluxo esperado e: Windows iniciado, Gerenciador iniciado, fila encontrada, Urano, espera, Scale e fim da fila.
+
+O modo --auto foi mantido para compatibilidade. O EXE e compilado com console=False.
+
+
+CONFIRMAÇÃO AO ABRIR
+
+Ao abrir o aplicativo, após aproximadamente 2,5 segundos, será exibida a pergunta "Deseja iniciar agora a fila de automações?". A lista mostra a ordem configurada. Escolha Sim para iniciar ou Não para deixar a fila parada.
+
+Na aba Automações existe a opção "Perguntar antes de iniciar a fila ao abrir o aplicativo". Ela fica ativada por padrão e é salva no config.json. Se for desativada, a fila será iniciada automaticamente sem confirmação. Para manter a pergunta, deixe a opção marcada e clique em SALVAR E APLICAR.
+
+
+TELA DE LOG DO AGENDADOR
+
+O aplicativo usa a área de logs da própria interface para mostrar em tempo real o início, a fila, a automação atual, sucesso, falha e fim da execução. Os registros também continuam no autologin.log.
+
+Na aba Automações há agora a opção "Iniciar automações ao abrir o aplicativo". Se estiver desmarcada, o aplicativo abre normalmente, mas não inicia a fila. Se estiver marcada e a opção de confirmação também estiver marcada, o aplicativo perguntará antes de iniciar. Se a confirmação estiver desmarcada, iniciará diretamente.
+
+
+IMPORTANTE: esta versão não cria, sincroniza, remove nem abre tarefas do Agendador do Windows. O início da fila é controlado somente pela opção "Iniciar automações ao abrir o aplicativo" e pela confirmação configurável.
+
+O config.json incluído contém as automações URAno e Nova SACALE, suas janelas, coordenadas, timers, usuários e senhas fornecidos. Revise as credenciais antes de usar e altere-as diretamente pelo aplicativo ou no arquivo. Os campos confirmar_fila_ao_abrir e iniciar_fila_ao_abrir estão definidos como true.
+
+Esta versão não possui aba, botão ou rotina de agendamento no Windows. As automações são iniciadas exclusivamente pelo Gerenciador de Automações.
+
+Na aba Automações, marque "Ativa", "Incluir na fila automática" e "Iniciar automações ao abrir o aplicativo". Se a confirmação estiver ativada, o aplicativo perguntará antes de executar a fila; caso contrário, iniciará diretamente.
+
+
+INICIALIZAÇÃO DO APP COM PRIVILÉGIOS ELEVADOS
+
+Depois de gerar o EXE, execute INSTALAR_INICIALIZACAO_ADMIN.bat com duplo clique. O próprio arquivo solicitará a confirmação do UAC e criará uma única tarefa chamada GerenciadorAutomacoes_Inicializacao, configurada para iniciar no logon com nível mais alto. A tarefa executa o EXE com --startup; a fila continua sendo controlada pelo aplicativo.
+
+Para desativar essa inicialização, execute REMOVER_INICIALIZACAO_ADMIN.bat. O BAT de instalação procura primeiro dist\GerenciadorAutomacoes_v2_2.exe e depois um EXE colocado diretamente na pasta.

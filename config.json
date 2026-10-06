@@ -1,0 +1,53 @@
+{
+  "versao": 2,
+  "automacoes": [
+    {
+      "id": "6CFB55E8",
+      "nome": "URAno",
+      "janela": "Entrar no Sistema",
+      "usuario": "admin",
+      "senha": "mude-me",
+      "tempo": 30,
+      "timeout_janela": 180,
+      "ativa": true,
+      "iniciar_windows": true,
+      "iniciar_automaticamente": true,
+      "coordenadas_relativas": false,
+      "reconhecimento_imagem": false,
+      "imagem": "",
+      "coordenadas": {
+        "usuario_x": 896,
+        "usuario_y": 563,
+        "senha_x": 898,
+        "senha_y": 603,
+        "login_x": 989,
+        "login_y": 670
+      }
+    },
+    {
+      "id": "2B9B29E6",
+      "nome": "Nova SACALE",
+      "janela": "Scale Manager",
+      "usuario": "admin",
+      "senha": "admin",
+      "tempo": 30,
+      "timeout_janela": 180,
+      "ativa": true,
+      "iniciar_windows": true,
+      "iniciar_automaticamente": true,
+      "coordenadas_relativas": false,
+      "reconhecimento_imagem": false,
+      "imagem": "",
+      "coordenadas": {
+        "usuario_x": 871,
+        "usuario_y": 511,
+        "senha_x": 868,
+        "senha_y": 553,
+        "login_x": 882,
+        "login_y": 587
+      }
+    }
+  ],
+  "confirmar_fila_ao_abrir": true,
+  "iniciar_fila_ao_abrir": true
+}
